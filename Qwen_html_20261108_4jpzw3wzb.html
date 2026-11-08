@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Брайки | Спешелти кофе и десерты в Новосибирске</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0A0A0A',
+                        surface: '#141414',
+                        cream: '#F2F0E9',
+                        accent: '#D4FF00',
+                        accentHover: '#B8E600'
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #F2F0E9;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .noise-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #F2F0E9, #9CA3AF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <div class="noise-bg"></div>
+
+    <!-- Навигация -->
+    <nav class="fixed top-0 w-full z-40 px-6 py-4 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card rounded-2xl px-6 py-3">
+            <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white">БРАЙКИ<span class="text-accent">.</span></a>
+            <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-400">
+                <a href="#about" class="hover:text-accent transition-colors">О нас</a>
+                <a href="#menu" class="hover:text-accent transition-colors">Меню</a>
+                <a href="#location" class="hover:text-accent transition-colors">Контакты</a>
+            </div>
+            <a href="https://2gis.ru/novosibirsk/firm/70000001007519125" target="_blank" class="bg-white text-dark px-5 py-2.5 rounded-full text-sm font-bold hover:bg-accent transition-colors duration-300">
+                Как добраться
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Секция -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8 reveal">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                <span class="text-xs font-semibold tracking-widest uppercase text-gray-300">Центральный район, Новосибирск</span>
+            </div>
+            
+            <h1 class="font-display font-800 text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-8 reveal" style="transition-delay: 100ms;">
+                КОФЕ, КОТОРЫЙ <br>
+                <span class="text-gradient">МЕНЯЕТ ПРАВИЛА</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed reveal" style="transition-delay: 200ms;">
+                Спешелти зерно, авторские десерты от сети «Форне» и эстетика в каждой детали. Без лишнего шума. Только чистый вкус и правильный вайб.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal" style="transition-delay: 300ms;">
+                <a href="#menu" class="group relative px-8 py-4 bg-accent text-dark font-bold text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(212,255,0,0.3)]">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Смотреть меню <i data-lucide="arrow-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                    </span>
+                </a>
+                <a href="tel:+79836010000" class="px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 transition-all flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Позвонить
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статистика / Доверие -->
+    <section class="py-12 border-y border-white/5 bg-surface/30">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+            <div>
+                <div class="font-display text-4xl font-bold text-accent mb-1">4.9</div>
+                <div class="text-sm text-gray-400">Рейтинг на 2GIS</div>
+            </div>
+            <div>
+                <div class="font-display text-4xl font-bold text-white mb-1">89+</div>
+                <div class="text-sm text-gray-400">Честных отзывов</div>
+            </div>
+            <div>
+                <div class="font-display text-4xl font-bold text-white mb-1">08:00</div>
+                <div class="text-sm text-gray-400">Открываемся рано</div>
+            </div>
+            <div>
+                <div class="font-display text-4xl font-bold text-white mb-1">100%</div>
+                <div class="text-sm text-gray-400">Свежая выпечка</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ О НАС -->
+    <section id="about" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <span class="text-accent font-bold tracking-widest text-sm uppercase mb-4 block">Философия Брайки</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        МЫ НЕ ПРОСТО <br>ВАРИМ КОФЕ. <span class="text-gray-600">МЫ СОЗДАЕМ СРЕДУ.</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        «Брайки» — это часть семьи «Форне», но с собственным дерзким характером. Мы убрали всё лишнее: пафос, сложные меню и скучные интерьеры. 
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Оставили только идеальную экстракцию зерна, хрустящие круассаны, которые пекутся каждое утро, и атмосферу, где одинаково комфортно и фрилансеру с ноутбуком, и компании друзей на пятничном бранче.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white">Честный продукт</h4>
+                                <p class="text-sm text-gray-500">Никаких сиропов, перебивающих вкус зерна. Только чистая классика и авторские миксы.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white">Своя обжарка</h4>
+                                <p class="text-sm text-gray-500">Контролируем профиль вкуса от зеленого зерна до твоей чашки.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay: 200ms;">
+                    <div class="glass-card rounded-3xl p-6 flex flex-col justify-end h-64 bg-gradient-to-b from-transparent to-black/80 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=600&q=80')] bg-cover bg-center opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
+                        <span class="relative z-10 font-display font-bold text-xl">Эстетика</span>
+                    </div>
+                    <div class="glass-card rounded-3xl p-6 flex flex-col justify-center items-center text-center h-64 border-accent/20 bg-accent/5">
+                        <i data-lucide="heart-handshake" class="w-12 h-12 text-accent mb-4"></i>
+                        <span class="font-display font-bold text-2xl">Комьюнити</span>
+                        <span class="text-sm text-gray-400 mt-2">Место, где тебя знают по имени</span>
+                    </div>
+                    <div class="glass-card rounded-3xl p-6 flex flex-col justify-center items-center text-center h-64 col-span-2 border-white/10">
+                        <div class="flex -space-x-4 mb-4">
+                            <img class="w-12 h-12 rounded-full border-2 border-dark" src="https://api.dicebear.com/7.x/avataaars/svg?seed=1" alt="">
+                            <img class="w-12 h-12 rounded-full border-2 border-dark" src="https://api.dicebear.com/7.x/avataaars/svg?seed=2" alt="">
+                            <img class="w-12 h-12 rounded-full border-2 border-dark" src="https://api.dicebear.com/7.x/avataaars/svg?seed=3" alt="">
+                            <div class="w-12 h-12 rounded-full border-2 border-dark bg-surface flex items-center justify-center text-xs font-bold text-accent">+1k</div>
+                        </div>
+                        <span class="font-display font-bold text-xl">Нас выбирают</span>
+                        <span class="text-sm text-gray-400 mt-1">Студенты, креаторы и гики Новосибирска</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Меню (Bento Grid) -->
+    <section id="menu" class="py-24 px-6 bg-surface/30 border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-12 reveal">ЧТО МЫ ДЕЛАЕМ <span class="text-gray-600">ЛУЧШЕ ВСЕХ</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+                <div class="md:col-span-2 glass-card rounded-3xl p-8 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] group-hover:bg-accent/10 transition-all"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4 text-accent">
+                                <i data-lucide="coffee" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-display text-3xl font-bold mb-2">Спешелти кофе</h3>
+                            <p class="text-gray-400 max-w-md">Эспрессо, фильтр и авторские рафы. Мы сами обжариваем зерно и контролируем каждую чашку. Вкус, который раскрывается постепенно.</p>
+                        </div>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold border border-white/10">Капучино</span>
+                            <span class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold border border-white/10">Флэт Уайт</span>
+                            <span class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold border border-white/10">Бамбл</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500 reveal" style="transition-delay: 100ms;">
+                    <div class="absolute bottom-0 right-0 w-40 h-40 bg-purple-500/10 rounded-full blur-[60px]"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4 text-purple-400">
+                            <i data-lucide="cake" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold mb-2">Десерты «Форне»</h3>
+                            <p class="text-gray-400 text-sm">Фирменная кондитерская сеть. Свежие круассаны, чизкейки и эклеры каждое утро.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group hover:border-accent/30 transition-colors duration-500 reveal" style="transition-delay: 200ms;">
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4 text-blue-400">
+                            <i data-lucide="laptop" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold mb-2">Для работы и встреч</h3>
+                            <p class="text-gray-400 text-sm">Быстрый Wi-Fi, удобные розетки и правильный фоновый эмбиент. Твой второй офис.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-accent text-dark rounded-3xl p-8 relative overflow-hidden flex flex-col justify-center items-start reveal" style="transition-delay: 300ms;">
+                    <h3 class="font-display text-3xl md:text-4xl font-bold mb-4">ГОТОВ ПОПРОБОВАТЬ?</h3>
+                    <p class="text-dark/70 max-w-md mb-6 font-semibold">Заглядывай к нам на Державина, 28. Мы уже приготовили твою идеальную чашку.</p>
+                    <!-- ИСПРАВЛЕННАЯ ССЫЛКА НА 2GIS -->
+                    <a href="https://2gis.ru/novosibirsk/firm/70000001007519125" target="_blank" class="bg-dark text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                        Построить маршрут <i data-lucide="map-pin" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Локация и Контакты -->
+    <section id="location" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-8">НАЙДИ НАС <br><span class="text-gray-600">В ЦЕНТРЕ</span></h2>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-accent">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Адрес</h4>
+                            <p class="text-gray-400">г. Новосибирск, ул. Державина, 28<br><span class="text-sm text-gray-500">1 этаж, Центральный район</span></p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-accent">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Режим работы</h4>
+                            <p class="text-gray-400">Пн-Пт: 08:00 – 21:00<br>Сб-Вс: 09:00 – 22:00</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 text-accent">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Телефон</h4>
+                            <a href="tel:+79836010000" class="text-gray-400 hover:text-white transition-colors">+7 (983) 601-XX-XX</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ИСПРАВЛЕННЫЙ ВИДЖЕТ 2GIS С ПРАВИЛЬНЫМ ID -->
+            <div class="h-[400px] md:h-[500px] rounded-3xl overflow-hidden glass-card relative reveal group">
+                <iframe src="https://widgets.2gis.com/widget?type=firms&firmId=70000001007519125&theme=dark" width="100%" height="100%" frameborder="0" class="grayscale group-hover:grayscale-0 transition-all duration-500 rounded-3xl"></iframe>
+                <div class="absolute inset-0 pointer-events-none border border-white/10 rounded-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-12 px-6 border-t border-white/5 text-center">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-display font-bold text-2xl tracking-tighter text-white">БРАЙКИ<span class="text-accent">.</span></div>
+            <p class="text-gray-500 text-sm">© 2024 Брайки. Фирменная сеть «Форне». Все права защищены.</p>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-dark transition-all">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-dark transition-all">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+    </script>
+</body>
+</html>
